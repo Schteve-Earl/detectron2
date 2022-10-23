@@ -138,9 +138,11 @@ if __name__ == "__main__":
         assert args.output is None, "output not yet supported with --webcam!"
         for i in range(9):
             try:
-                cam = cv2.VideoCapture(2)
+                print("opening camera {}".format(i))
+                cam = cv2.VideoCapture(i)
+                print("opened camera {}".format(i))
                 break
-            except:
+            except cv2.error:
                 print("Unable to open camera from port {}".format(i))
 
         for vis in tqdm.tqdm(demo.run_on_video(cam)):

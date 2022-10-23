@@ -36,6 +36,7 @@ RUN pip install --user torch==1.10 torchvision==0.11.1 -f https://download.pytor
 RUN pip install --user 'git+https://github.com/facebookresearch/fvcore'
 # install detectron2
 RUN git clone https://github.com/schteve-earl/detectron2 detectron2_repo
+
 # set FORCE_CUDA because during `docker build` cuda is not accessible
 ENV FORCE_CUDA="1"
 # This will by default build detectron2 for all common cuda architectures and take a lot more time,
@@ -47,7 +48,7 @@ RUN pip install --user -e detectron2_repo
 
 RUN python -m pip install opencv-python
 
-RUN echo alias run_demo='python demo/demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --webcam --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl' >> ~/.bashrc
+RUN echo alias run_demo='python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --webcam --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl' >> ~/.bashrc
 
 # Set a fixed model cache directory.
 ENV FVCORE_CACHE="/tmp"
