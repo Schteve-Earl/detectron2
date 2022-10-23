@@ -11,13 +11,16 @@ import cv2
 
 
 if __name__ == "__main__":
-    cam = cv2.VideoCapture(8)
+    cam_color = cv2.VideoCapture(8)
+    cam_depth = cv2.VideoCapture(6)
 
     while True:
-        ret, frame = cam.read()
+        ret, frame_color = cam_color.read()
+        ret, frame_depth = cam_depth.read()
         
         # Show the captured image
-        cv2.imshow('WebCam', frame)
+        cv2.imshow('WebCamColor', frame_color)
+        cv2.imshow('WebCamDepth', frame_depth)
         
         # wait for the key and come out of the loop
         if cv2.waitKey(1) == ord('q'):
