@@ -7,9 +7,9 @@ RUN apt-get update && apt-get install -y \
     python3-opencv ca-certificates git wget sudo ninja-build
 
 # Make python3 available for python3.7
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
-RUN update-alternatives --config python3
+# RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+# RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
+# RUN update-alternatives --config python3
 # Make python available for python3.7
 RUN ln -sv /usr/bin/python3.7 /usr/bin/python
 
