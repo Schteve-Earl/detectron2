@@ -49,6 +49,7 @@ RUN pip install --user -e detectron2_repo
 RUN python -m pip install opencv-python
 
 RUN echo alias run_demo='python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --webcam --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl' >> ~/.bashrc
+#python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input Tater_1.jpg --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
 
 # Set a fixed model cache directory.
 ENV FVCORE_CACHE="/tmp"
